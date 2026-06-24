@@ -1,0 +1,460 @@
+:root {
+  /* ─── Paleta de colores ─────────────────────────
+     Inspiración: trattoria italiana elegante y cálida
+  ─────────────────────────────────────────────── */
+  --color-primario:    #8B1E1E;
+  --color-secundario:  #E86A24;
+  --color-fondo:       #FFF8EF;
+  --color-texto:       #2F241F;
+  --color-claro:       #FFFFFF;
+  --color-reserva-vip: #FFE3C2;
+
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-cuerpo: 'Lato', sans-serif;
+}
+
+/* ─── RESET Y BASE ─── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background:
+    radial-gradient(circle at top left, rgba(232, 93, 4, 0.14), transparent 28%),
+    linear-gradient(180deg, #fffaf5 0%, var(--color-fondo) 48%, #fff1e6 100%);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+/* ─── ENCABEZADO ─── */
+.hero-restaurante {
+  min-height: 380px;
+  background:
+    linear-gradient(135deg, rgba(139, 30, 30, 0.97), rgba(170, 56, 32, 0.90)),
+    linear-gradient(45deg, rgba(232, 106, 36, 0.55), rgba(72, 105, 62, 0.25));
+  color: var(--color-claro);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-restaurante::before {
+  content: "";
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  top: -120px;
+  left: -105px;
+}
+
+.hero-restaurante::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background-color: rgba(232, 93, 4, 0.22);
+  border-radius: 50%;
+  right: -90px;
+  bottom: -100px;
+}
+
+.texto-hero {
+  padding: 65px 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-restaurante h1 {
+  font-family: var(--fuente-titulo);
+  font-size: clamp(3rem, 6vw, 5.6rem);
+  margin: 12px 0;
+  letter-spacing: 1.2px;
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.hero-restaurante p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  opacity: 0.96;
+}
+
+.etiqueta {
+  background-color: var(--color-secundario);
+  color: var(--color-claro);
+  padding: 9px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+/* ─── SECCIONES ─── */
+.bloque {
+  background-color: rgba(255, 255, 255, 0.97);
+  padding: 44px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 22px 54px rgba(122, 31, 31, 0.12);
+  border: 1px solid rgba(122, 31, 31, 0.08);
+  position: relative;
+}
+
+.bloque::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 42px;
+  width: 100px;
+  height: 5px;
+  background-color: var(--color-secundario);
+  border-radius: 0 0 12px 12px;
+}
+
+.titulo-seccion {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.titulo-seccion h2 {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+  margin-bottom: 10px;
+  font-size: clamp(2.1rem, 4vw, 2.75rem);
+}
+
+.titulo-seccion p {
+  color: #666;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ─── FILTROS ─── */
+.filtros {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.btn-filtro {
+  background-color: var(--color-claro);
+  border: 2px solid var(--color-primario);
+  color: var(--color-primario);
+  padding: 12px 24px;
+  margin: 6px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 8px 18px rgba(122, 31, 31, 0.09);
+}
+
+.btn-filtro:hover,
+.btn-filtro.activo {
+  background-color: var(--color-primario);
+  color: var(--color-claro);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(122, 31, 31, 0.20);
+}
+
+/* ─── PLATILLOS ─── */
+.card-plato {
+  background:
+    linear-gradient(180deg, var(--color-claro), #fff6ef);
+  border-radius: 26px;
+  padding: 28px;
+  border: 1px solid rgba(232, 93, 4, 0.22);
+  height: 100%;
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-plato::before {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 70px;
+  background-color: var(--color-secundario);
+  border-radius: 20px;
+  top: 28px;
+  left: 0;
+}
+
+.card-plato::after {
+  content: "🍝";
+  position: absolute;
+  right: 20px;
+  bottom: 14px;
+  font-size: 2.7rem;
+  opacity: 0.075;
+}
+
+.card-plato:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 20px 38px rgba(122, 31, 31, 0.18);
+}
+
+.card-plato h3 {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+  margin-bottom: 10px;
+  padding-left: 6px;
+  font-size: 1.58rem;
+}
+
+.card-plato p {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.precio {
+  color: var(--color-secundario);
+  font-weight: bold;
+  font-size: 1.42rem;
+  margin-top: 12px;
+}
+
+.categoria {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: rgba(72, 105, 62, 0.12);
+  color: #48693E;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 0.86rem;
+  font-weight: bold;
+}
+
+/* ─── FORMULARIO ─── */
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: bold;
+  color: var(--color-primario);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #d8d8d8;
+  border-radius: 15px;
+  font-family: var(--fuente-cuerpo);
+  background-color: #fffdfb;
+  transition: 0.25s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: rgba(232, 93, 4, 0.65);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-secundario);
+  box-shadow: 0 0 0 4px rgba(232, 93, 4, 0.14);
+  background-color: var(--color-claro);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background:
+    linear-gradient(135deg, var(--color-secundario), #C2410C);
+  color: var(--color-claro);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 12px 24px rgba(232, 93, 4, 0.28);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(232, 93, 4, 0.36);
+}
+
+button[type="submit"]:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ─── ERRORES ─── */
+.error-campo {
+  color: #C0392B;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  min-height: 20px;
+  font-weight: bold;
+}
+
+.mensaje-confirmacion {
+  color: #1E8449;
+  margin-top: 16px;
+  font-weight: bold;
+}
+
+/* ─── TABLA ─── */
+.tabla-contenedor {
+  margin-top: 42px;
+  overflow-x: auto;
+}
+
+.tabla-contenedor h3 {
+  color: var(--color-primario);
+  margin-bottom: 16px;
+  font-family: var(--fuente-titulo);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--color-claro);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(122, 31, 31, 0.09);
+}
+
+th {
+  background-color: var(--color-primario);
+  color: var(--color-claro);
+  letter-spacing: 0.3px;
+}
+
+th,
+td {
+  padding: 16px;
+  border-bottom: 1px solid #eeeeee;
+  text-align: center;
+}
+
+tbody tr {
+  transition: 0.25s ease;
+}
+
+tbody tr:hover {
+  background-color: #FFF1E6;
+}
+
+.fila-reserva {
+  background-color: var(--color-claro);
+}
+
+.reserva-grande {
+  background-color: var(--color-reserva-vip) !important;
+  font-weight: bold;
+}
+
+/* ─── RESUMEN ─── */
+.resumen-reservas {
+  margin-top: 36px;
+  padding: 32px;
+  background:
+    linear-gradient(135deg, #ffffff, #fff1df);
+  border-left: 7px solid var(--color-secundario);
+  border-radius: 22px;
+  box-shadow: 0 16px 34px rgba(139, 30, 30, 0.09);
+}
+
+.resumen-reservas h3 {
+  color: var(--color-primario);
+  margin-bottom: 22px;
+  font-family: var(--fuente-titulo);
+}
+
+.dato-resumen {
+  background-color: var(--color-claro);
+  padding: 26px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(232, 93, 4, 0.18);
+  height: 100%;
+  transition: 0.25s ease;
+}
+
+.dato-resumen:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 26px rgba(122, 31, 31, 0.10);
+}
+
+.dato-resumen span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-primario);
+  font-weight: bold;
+}
+
+.dato-resumen strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--color-secundario);
+  font-size: 1.52rem;
+}
+
+/* ─── PIE DE PÁGINA ─── */
+footer {
+  background-color: var(--color-primario);
+  color: var(--color-claro);
+  text-align: center;
+  padding: 28px;
+  margin-top: 52px;
+  box-shadow: 0 -10px 28px rgba(122, 31, 31, 0.12);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .hero-restaurante {
+    min-height: 300px;
+  }
+
+  .hero-restaurante h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-restaurante p {
+    font-size: 1rem;
+  }
+
+  .bloque {
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .btn-filtro {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  th,
+  td {
+    padding: 11px;
+    font-size: 0.9rem;
+  }
+
+  .resumen-reservas {
+    padding: 24px;
+  }
+}
